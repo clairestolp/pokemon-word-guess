@@ -126,10 +126,12 @@ var guesses = 6;
 var lettersUsed = '';
 var problemArr = [];
 var solutionArr = [];
+var replaced = false;
 
 
 function generateProblem (length, input, index) {
   var problemString = '';
+
   if(!input){
     input = '_';
     for (var i = 0; i < length; i++){
@@ -137,6 +139,9 @@ function generateProblem (length, input, index) {
       solutionArr.push(pokemon[rng].name.charAt(i).toUpperCase());
     }
   }else{
+    if(lettersUsed.includes(input)){
+      return alert('You already picked that letter');
+    }
     problemArr[index] = input;
     solutionArr[index] = '_';
     console.log(solutionArr);
@@ -164,6 +169,9 @@ console.log(solutionArr);
 
 
 document.onkeyup = function () {
+  if(replaced === true) {
+    location.reload();
+  }
   var userInput = event.key.toUpperCase();
   console.log("user input: ", userInput);
   var pokename = pokemon[rng].name.toUpperCase();
@@ -194,13 +202,15 @@ document.onkeyup = function () {
     location.reload();
   }
 
-  if(!problemArr.includes('_')){
+
+  if(!problemArr.includes('_') && replaced === false){
     $('#pokeball').remove();
     var answer = $('<img>',{id:'pokemon', src: pokemon[rng].img});
     answer.addClass('pokemon');
     $('#imgContainer').append(answer);
     question.html("It\'s");
     problem.append('!!!');
+    replaced = true;
   }
 }
 
