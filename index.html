@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon word guess</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <a href="http://clairestolp.github.io"><h1 id="logo">Claire Stolp</h1></a>
+    <div class="header">
+      <h1>Pokemon</h1>
+      <p>WORD</p>
+    </div>
+
+
+    <div id="game">
+      <div id="leftCorner">
+        <img id="voltorb" src="https://archives.bulbagarden.net/media/upload/thumb/2/27/100Voltorb_AG_anime.png/246px-100Voltorb_AG_anime.png" alt="voltorb">
+        <div class="circle">
+      </div>
+      </div>
+      <div id="rightCorner">
+        <div class="outerBorder">
+          <div id=problem class="innerBorder"></div>
+        </div>
+        <div id="imgContainer">
+          <img id="pokeball" src="assets/images/pokeball.png" alt="pokeball">
+        </div>
+        <div id="voltorbCircle" class="circle"></div>
+      </div>
+
+
+      <div class="fixedBottom outerBorder">
+        <div id="prompt" class="innerBorder">
+          <p>Voltorb is getting angry</p>
+          <br>
+          <strong>Remaining guesses: </strong><span id="remaining">6</span>
+          <br><br>
+          <strong>Letters used: </strong><span id="letters"></span>
+          <button id="reset" class="innerBorder clear-fix" type="button" name="Reset">RUN AWAY</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <footer>
+      Copyright &copy; 2018
+    </footer>
+
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+  </body>
+</html>
